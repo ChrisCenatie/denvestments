@@ -1,0 +1,18 @@
+<h1 class="header">Loans</h1>
+
+<div class="loans">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+    <% @loans.each do |loan| %>
+    <tr>
+      <td><%= loan.title %></td>
+      <td><%= loan.description %></td>
+      <td><%= loan.price %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
