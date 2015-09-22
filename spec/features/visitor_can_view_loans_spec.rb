@@ -5,8 +5,7 @@ feature "visitor viewing loans" do
     Loan.create(title: "Kitten Mittens",
                 description: "Support your kittens!",
                 price: 50,
-                avatar: File.open("bird.jpg", "rb")
-    )
+                avatar: File.open("bird.jpg", "rb"))
     visit "/loans"
 
     within(".header") do
