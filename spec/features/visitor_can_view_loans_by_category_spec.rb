@@ -3,11 +3,11 @@ require "rails_helper"
 # feature "visitor can view loans by category" do
 #   scenario "from the navbar menu" do
 #     loan = Loan.create(title: "Kitten Mittens",
-#                 description: "Support your kittens!",
-#                 price: 50,
-#                 avatar: File.open("bird.jpg", "rb"))
+#                        description: "Support your kittens!",
+#                        price: 50,
+#                        avatar: File.open("bird.jpg", "rb"))
 #
-#     loan2 = Loan.create(title: "Urban Bees",
+#     Loan.create(title: "Urban Bees",
 #                 description: "Local Honey",
 #                 price: 50)
 #
@@ -38,18 +38,17 @@ require "rails_helper"
 feature "visitor can view loans by category" do
   scenario "from the category index" do
     loan = Loan.create(title: "Kitten Mittens",
-                description: "Support your kittens!",
-                price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                       description: "Support your kittens!",
+                       price: 50,
+                       avatar: File.open("bird.jpg", "rb"))
 
-    loan2 = Loan.create(title: "Urban Bees",
+    Loan.create(title: "Urban Bees",
                 description: "Local Honey",
                 price: 50)
 
     category = Category.create(name: "Crafts")
     category.loans << loan
     visit "/categories/#{category.id}"
-    save_and_open_page
     within(".header") do
       expect(page).to have_content("Crafts")
     end
