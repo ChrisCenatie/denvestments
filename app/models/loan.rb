@@ -1,4 +1,8 @@
 class Loan < ActiveRecord::Base
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+
   belongs_to :category
   has_attached_file :avatar,
                     styles: { medium: "300x300", thumb: "100x100" },

@@ -13,7 +13,7 @@
       <td><%= loan.title %></td>
       <td><%= loan.description %></td>
       <td><%= loan.price %></td>
-      <td><%= image_tag loan.avatar.url %></td>
+      <td><img src="<%= loan.avatar_file_name %>" style="width:200px;height:128px;"></td>
     </tr>
     <% end %>
   </table>
