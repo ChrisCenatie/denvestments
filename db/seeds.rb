@@ -1,14 +1,17 @@
 loan1 = Loan.create(title: "Urban Bees",
                     description: "Buy local Denver honey.",
-                    price: 50)
+                    price: 50,
+                    avatar_file_name: "http://i.dailymail.co.uk/i/pix/2011/08/01/article-2021108-0D40723300000578-13_634x383.jpg")
 
 loan2 = Loan.create(title: "Kitten Mittens",
                     description: "Keep your kittens cozy.",
-                    price: 25)
+                    price: 25,
+                    avatar_file_name: "http://pitt.edu/~sak162/kitten.jpg")
 
 loan3 = Loan.create(title: "Bike Bus",
                     description: "We'll bring our shop to you.",
-                    price: 100)
+                    price: 100,
+                    avatar_file_name: "http://urbansimplicty.files.wordpress.com/2009/06/bikebus.jpg")
 
 category1 = Category.create(name: "Crafts")
 
