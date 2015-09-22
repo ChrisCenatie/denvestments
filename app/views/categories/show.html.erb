@@ -1,0 +1,20 @@
+<h1 class="header"><%= @category.name %></h1>
+
+<div class="loans">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+    <% @loans.each do |loan| %>
+    <tr>
+      <td><%= loan.title %></td>
+      <td><%= loan.description %></td>
+      <td><%= loan.price %></td>
+      <td><%= image_tag loan.avatar.url %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
