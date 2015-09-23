@@ -3,50 +3,49 @@
   <div class="row">
     <div class="col-md-12">
       <h1 class="lead header">Loans</h1>
-      <div class="row carousel-holder">
-
-          <div class="col-md-12">
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                  <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  </ol>
-                  <div class="carousel-inner">
-                      <div class="item active">
-                          <img class="slide-image" src="http://s11.postimg.org/4ahhr591d/kitten_mittens.png", style="width:1500px;height:646px;" alt="">
-                      </div>
-                      <div class="item">
-                          <img class="slide-image" src="http://urbansimplicty.files.wordpress.com/2009/06/bikebus.jpg", style="width:1500px;height:646px;" alt="">
-                      </div>
-                      <div class="item">
-                          <img class="slide-image" src="http://i.dailymail.co.uk/i/pix/2011/08/01/article-2021108-0D40723300000578-13_634x383.jpg", style="width:1500px;height:646px;" alt="">
-                      </div>
-                  </div>
-                  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                  </a>
-                  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                  </a>
-              </div>
+    </div>
+    <div class="carousel-holder">
+      <div class="col-md-12">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img class="slide-image" src="http://s11.postimg.org/4ahhr591d/kitten_mittens.png", alt="">
+            </div>
+            <div class="item">
+              <img class="slide-image" src="http://urbansimplicty.files.wordpress.com/2009/06/bikebus.jpg", alt="">
+            </div>
+            <div class="item">
+              <img class="slide-image" src="http://i.dailymail.co.uk/i/pix/2011/08/01/article-2021108-0D40723300000578-13_634x383.jpg", alt="">
+            </div>
           </div>
-      </div>
-      <div class="row loans">
-        <% @loans.each do |loan| %>
-          <div class="col-sm-4 col-lg-4 col-md-4">
-                <div class="thumbnail">
-                  <img src="<%= loan.avatar_file_name %>" height="150" width="320" alt="">
-                  <div class="caption">
-                      <h4 class="pull-right"><%= loan.price %></h4>
-                      <h4><a href="#"><%= loan.title %></a>
-                      </h4>
-                      <p><%= loan.description %></p>
-                  </div>
-              </div>
-          </div>
-          <% end %>
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="row loans">
+    <% @loans.each do |loan| %>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+          <img src="<%= loan.avatar_file_name %>" height="150" width="320" alt="">
+          <div class="caption">
+            <h4 class="pull-right"><%= loan.price %></h4>
+            <h4><a href="#"><%= loan.title %></a>
+            </h4>
+            <p><%= loan.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
