@@ -20,6 +20,7 @@ gem "figaro"
 
 group :development, :test do
   gem "byebug"
+  gem "pry-rails"
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"
