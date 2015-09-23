@@ -15,6 +15,9 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "unicorn"
 gem "paperclip"
+gem "aws-sdk"
+gem "figaro"
+
 group :development, :test do
   gem "byebug"
   gem "rspec-rails"
