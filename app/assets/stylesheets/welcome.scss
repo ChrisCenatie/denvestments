@@ -1,20 +1,21 @@
+$grey: #666666;
 
 .full {
-  background: url(https://upload.wikimedia.org/wikipedia/commons/c/ce/Downtown_Denver_2.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/c/ce/Downtown_Denver_2.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
 }
 
 .welcome-header {
-  color: #666666;
+  color: $grey;
   font-family: "Tenor Sans", Helvetica, sans-serif;
   font-size: 5em;
 }
 
 .welcome-text {
-  color: #666666;
+  color: $grey;
   font-family: "Tenor Sans", Helvetica, sans-serif;
   font-size: 2em;
 }
