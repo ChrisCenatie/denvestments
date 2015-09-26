@@ -7,6 +7,8 @@ require "spec_helper"
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara/rails"
+require "simplecov"
+SimpleCov.start "rails"
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

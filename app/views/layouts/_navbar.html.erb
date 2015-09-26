@@ -16,7 +16,8 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+      <li>Loans in Cart: <%= session[:cart].values.sum if session[:cart] %>
+      <li><a id="cart" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
     </ul>
   </div>
 </nav>

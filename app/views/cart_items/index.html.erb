@@ -1,0 +1,13 @@
+<%= render partial: "layouts/navbar" %>
+<div class="items">
+<% @items.each do |item| %>
+  <ul>
+    <li>Loan: <%= item.loan.title %></li>
+    <li>Description: <%= item.loan.description %></li>
+    <li>Quantity: <%= item.quantity %></li>
+    <li>Subtotal: <%= item.subtotal %></li>
+  </ul>
+<% end %>
+
+<h2>Total Price: <%= @total %></h2>
+</div>
