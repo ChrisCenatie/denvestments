@@ -1,14 +1,14 @@
 class CartItemsController < ApplicationController
   def create
-    #check path to know whcih page to render
-    cart = session[:cart] || {}
-    cart[params[:loan_id]] ||= 0
-    cart[params[:loan_id]] += 1
-    session[:cart] = cart
-    flash[:notice] = cart
+    loan_cart = cart
+    loan_cart.add_item(params)
+    session[:cart] = loan_cart.data
     redirect_to loans_path
   end
 
   def index
+    @items = cart.items
+    @total = cart.total
   end
+
 end
