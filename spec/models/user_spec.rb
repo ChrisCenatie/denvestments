@@ -17,4 +17,9 @@ RSpec.describe User, type: :model do
     user = User.new(password: "secret")
     refute(user.save)
   end
+
+  it "must have a password" do
+    user = User.new(username: "alice")
+    refute(user.save)
+  end
 end
