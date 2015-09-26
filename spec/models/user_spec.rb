@@ -22,4 +22,11 @@ RSpec.describe User, type: :model do
     user = User.new(username: "alice")
     refute(user.save)
   end
+
+  it "cannot have the same username as another user" do
+    user_1 = User.new(username: "alice", password: "secret_1")
+    user_2 = User.new(username: "alice", password: "secret_2")
+    expect(user_1.save)
+    refute(user_2.save)
+  end
 end
