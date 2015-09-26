@@ -4,7 +4,13 @@
   <ul>
     <li>Loan: <%= item.loan.title %></li>
     <li>Description: <%= item.loan.description %></li>
-    <li>Quantity: <%= item.quantity %></li>
+    <li class="quantity">
+      <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
+        <%= f.label :quantity %>
+        <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
+        <%= f.submit "Change Quantity" %>
+      <% end %>
+    </li>
     <li>Subtotal: <%= item.subtotal %></li>
   </ul>
 <% end %>
