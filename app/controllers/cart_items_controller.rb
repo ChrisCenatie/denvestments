@@ -11,6 +11,11 @@ class CartItemsController < ApplicationController
     @total = cart.total
   end
 
+  def update
+    change_quantity(params)
+    redirect_to "/cart"
+  end
+
   private
 
   def redirect(params)
@@ -19,5 +24,9 @@ class CartItemsController < ApplicationController
     else
       redirect_to loans_path
     end
+  end
+
+  def change_quantity(params)
+    session[:cart][params[:id]] = params[:item_quantity][:quantity].to_i
   end
 end
