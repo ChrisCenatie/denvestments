@@ -1,5 +1,5 @@
 <% if current_user %>
-  <li><%= current_user.username %></li>
+  <li><%= link_to current_user.username, dashboard_path %></li>
   <li><%= link_to "logout", logout_path, method: :delete %></li>
 <% else %>
   <li><a href="/login">Log In</a></li>
