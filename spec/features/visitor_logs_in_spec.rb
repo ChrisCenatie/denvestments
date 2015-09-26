@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "visitor logging in" do
-  xscenario "correct login information" do
+feature "Visitor logging in" do
+  scenario "works with correct login information" do
     User.create(
       username: "alice",
       password: "secret",
@@ -12,11 +12,13 @@ feature "visitor logging in" do
     fill_in "user[password]", with: "secret"
     click_button "Log In"
 
-    expect(current_path).to be("/dashboard")
-    within "#navbar" do
-      expect(current_page).to have_content("alice")
-      expect(current_page).to have_link("logout")
-      expect(current_page).to have_no_link("login")
+    expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("alice")
+    visit "/"
+    within ".navbar" do
+    expect(page).to have_content("alice")
+      expect(page).to have_link("logout")
+      expect(page).to have_no_link("login")
     end
   end
 end
