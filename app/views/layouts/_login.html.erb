@@ -1,7 +1,7 @@
 <% if current_user %>
-  <p><%= current_user.username %></p>
-  <%= link_to "logout", logout_path, method: :delete %>
+  <li><%= current_user.username %></li>
+  <li><%= link_to "logout", logout_path, method: :delete %></li>
 <% else %>
-  <a href="/login">login</a>
-  <a href="/register">Create Account</a>
+  <li><a href="/login">login</a></li>
+  <li><a href="/register">Create Account</a></li>
 <% end %>
