@@ -12,4 +12,9 @@ RSpec.describe User, type: :model do
     expect(user.password).to eq(nil)
     expect(user.password_digest).not_to eq("english")
   end
+
+  it "must have a username" do
+    user = User.new(password: "secret")
+    refute(user.save)
+  end
 end
