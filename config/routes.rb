@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   post "/cart_items", to: "cart_items#create"
   get "/cart", to: "cart_items#index"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  get "/dashboard", to: "users#show"
 end
