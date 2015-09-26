@@ -12,7 +12,7 @@ feature "Visitor creating account" do
     expect(page).to have_content("grant")
     expect(page).to have_content("logout")
     expect(page).not_to have_content("Create Account")
-    expect(page).not_to have_content("login")
+    expect(page).not_to have_content("Log In")
   end
 
   scenario "won't work with invalid information" do
