@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  
   def cart
     Cart.new(session[:cart])
   end

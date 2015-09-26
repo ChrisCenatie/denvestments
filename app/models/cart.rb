@@ -23,7 +23,6 @@ class Cart
   end
 
   def total
-    items.map{ |item| item.subtotal }.sum
+    items.map(&:subtotal).sum
   end
-
 end

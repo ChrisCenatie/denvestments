@@ -13,7 +13,7 @@ feature "visitor adds loans to shopping cart" do
       click_button("Add to Cart")
       click_button("Add to Cart")
     end
-      expect(page).to have_content("Loans in Cart: 2")
+    expect(page).to have_content("Loans in Cart: 2")
     page.find("#cart").click
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
@@ -25,9 +25,9 @@ feature "visitor adds loans to shopping cart" do
 
   scenario "without being logged in from the category show page" do
     loan = Loan.create(title: "Kitten Mittens",
-                description: "Support your kittens!",
-                price: 5,
-                avatar: File.open("bird.jpg", "rb"))
+                       description: "Support your kittens!",
+                       price: 5,
+                       avatar: File.open("bird.jpg", "rb"))
     category = Category.create(name: "Crafts")
     category.loans << loan
     visit "/"
