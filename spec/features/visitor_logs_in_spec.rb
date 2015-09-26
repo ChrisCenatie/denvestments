@@ -14,7 +14,7 @@ feature "Visitor logging in" do
     visit "/"
     within ".navbar" do
       expect(page).to have_content("alice")
-      expect(page).to have_link("logout")
+      expect(page).to have_link("Log Out")
       expect(page).to have_no_link("Log In")
     end
   end
