@@ -1,5 +1,4 @@
 class CartItemsController < ApplicationController
-
   def create
     loan_cart = cart
     loan_cart.add_item(params)
