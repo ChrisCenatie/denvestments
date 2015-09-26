@@ -18,4 +18,15 @@ feature "Visitor logging in" do
       expect(page).to have_no_link("login")
     end
   end
+
+  scenario "doesn't work with invalid login information" do
+    visit "/"
+    click_link "login"
+    fill_in "user[username]", with: "alice"
+    fill_in "user[password]", with: "secret"
+    click_button "Log In"
+
+    expect(current_path).to eq("/login")
+    expect(page).to have_content("Incorrect login")
+  end
 end
