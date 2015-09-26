@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <%= form_for :user, path: "/login" do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
