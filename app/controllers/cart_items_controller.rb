@@ -16,6 +16,12 @@ class CartItemsController < ApplicationController
     redirect_to "/cart"
   end
 
+  def destroy
+    delete_item(params)
+    delete_notice
+    redirect_to "/cart"
+  end
+
   private
 
   def redirect(params)
@@ -28,5 +34,16 @@ class CartItemsController < ApplicationController
 
   def change_quantity(params)
     session[:cart][params[:id]] = params[:item_quantity][:quantity].to_i
+  end
+
+  def delete_item(params)
+    cart = session[:cart]
+    cart.delete(params[:id])
+  end
+
+  def delete_notice
+    loan = Loan.find(params[:id])
+    flash[:notice] = "Successfully removed <a href=/loans/#{params[:id]}>
+      #{loan.title}</a> from your cart."
   end
 end
