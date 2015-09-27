@@ -1,27 +1,32 @@
-
-<div class="delete_message">
-  <%= raw flash[:notice] %>
-</div>
-<div class="items">
-<% if @items %>
-  <% @items.each do |item| %>
-    <ul>
-      <li>Loan: <%= item.loan.title %></li>
-      <li>Description: <%= item.loan.description %></li>
-      <li class="quantity">
-        <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
-          <%= f.label :quantity %>
-          <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
-          <%= f.submit "Change Quantity" %>
-        <% end %>
-      </li>
-      <li><%= button_to("Remove Loan", "/cart_items/#{item.loan.id}",
-                        method: :delete) %></li>
-      <li>Subtotal: <%= item.subtotal %></li>
-    </ul>
-  <% end %>
-<% else %>
-  <p>Cart is Empty! This ain't no free ride</p>
-<% end %>
-<h2>Total Price: <%= @total %></h2>
+<<<<<<< HEAD
+<%= render partial: "layouts/navbar" %>
+<div class="container">
+  <div class="delete_message">
+    <%= raw flash[:notice] %>
+  </div>
+  <div class="items">
+    <% if @items %>
+      <% @items.each do |item| %>
+        <div class="row">
+          <ul class="list-group">
+            <li class="list-group-item">Loan: <%= item.loan.title %></li>
+            <li class="list-group-item">Description: <%= item.loan.description %></li>
+            <li class="list-group-item quantity">
+              <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
+                <%= f.label :quantity %>
+                <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
+                <%= f.submit "Change Quantity" %>
+              <% end %>
+            </li>
+            <li class="list-group-item"><%= button_to("Remove Loan", "/cart_items/#{item.loan.id}",
+                              method: :delete) %></li>
+            <li class="list-group-item">Subtotal: <%= item.subtotal %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Cart is Empty! This ain't no free ride</p>
+    <% end %>
+    <h2 class="lead">Total Price: <%= @total %></h2>
+  </div>
 </div>
