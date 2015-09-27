@@ -1,19 +1,22 @@
 <%= render partial: "layouts/navbar" %>
-<div class="items">
-<% @items.each do |item| %>
-  <ul>
-    <li>Loan: <%= item.loan.title %></li>
-    <li>Description: <%= item.loan.description %></li>
-    <li class="quantity">
-      <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
-        <%= f.label :quantity %>
-        <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
-        <%= f.submit "Change Quantity" %>
-      <% end %>
-    </li>
-    <li>Subtotal: <%= item.subtotal %></li>
-  </ul>
-<% end %>
-
-<h2>Total Price: <%= @total %></h2>
+<div class="container">
+  <div class="items">
+    <% @items.each do |item| %>
+      <div class="row">
+        <ul class="list-group">
+          <li class="list-group-item">Loan: <%= item.loan.title %></li>
+          <li class="list-group-item">Description: <%= item.loan.description %></li>
+          <li class="list-group-item quantity">
+            <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
+              <%= f.label :quantity %>
+              <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
+              <%= f.submit "Change Quantity" %>
+            <% end %>
+          </li>
+          <li class="list-group-item">Subtotal: <%= item.subtotal %></li>
+        </ul>
+      </div>
+    <% end %>
+    <h2 class="lead">Total Price: <%= @total %></h2>
+  </div>
 </div>
