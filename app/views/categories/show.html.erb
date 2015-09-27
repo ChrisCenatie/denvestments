@@ -7,7 +7,7 @@
         <% @loans.each do |loan| %>
           <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-              <img src="<%= loan.avatar_file_name %>" height="150" width="320" alt="">
+              <img src="<%= loan.avatar_file_name %>" alt="">
               <div class="caption">
                   <h4 class="pull-right"><%= loan.price %></h4>
                   <h4><a href="/loans/<% loan.id %>"><%= loan.title %></a>

@@ -4,7 +4,7 @@ loan1 = Loan.create(title: "Urban Bees",
                     avatar_file_name: "http://i.dailymail.co.uk/i/pix/2011/08/01/article-2021108-0D40723300000578-13_634x383.jpg")
 
 loan2 = Loan.create(title: "Kitten Mittens",
-                    description: "Keep your kittens cozy.",
+                    description: "Keep your kittens cozy. These mittens are handcrafted by a Capitol Hill artisan who anticipates being able to repay the loan within 6 months of starting her business. She already has a proven customer base.",
                     price: 25,
                     avatar_file_name: "http://pitt.edu/~sak162/kitten.jpg")
 

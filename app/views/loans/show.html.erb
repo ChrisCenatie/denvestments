@@ -1,8 +1,17 @@
 <%= render partial: "layouts/navbar" %>
-<ul>
-  <li><%= @loan.title %></li>
-  <li><%= @loan.description %></li>
-  <li><%= "Price: #{@loan.price}" %></li>
-  <li><%= button_to "Add to Cart", cart_items_path(loan_id: @loan.id,
-                                                   path: "loan_show") %></li>
-</ul>
+<div class="container">
+  <div class="col-md-12">
+    <div class="thumbnail">
+      <img class="img-responsive" src="<%= @loan.avatar_file_name %>" alt="">
+      <div class="caption-full">
+          <h4 class="pull-right"><%= "Price: #{@loan.price}" %></h4>
+          <h4><a href="#"><%= @loan.title %></a></h4>
+          <p><%= @loan.description %></p>
+          <a><%= button_to "Add to Cart", cart_items_path(loan_id: @loan.id,
+                                                           path: "loan_show") %></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
