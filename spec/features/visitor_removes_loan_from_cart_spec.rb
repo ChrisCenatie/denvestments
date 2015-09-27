@@ -27,7 +27,7 @@ feature "visitor removes loan from cart" do
     expect(current_path).to eq("/cart")
     expect(page).to have_content("Total Price: 0")
 
-    within(".delete_message") do
+    within(".alert-success") do
       result = "Successfully removed Kitten Mittens from your cart."
       expect(page).to have_content(result)
     end
