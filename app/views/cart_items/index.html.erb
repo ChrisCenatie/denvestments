@@ -1,8 +1,10 @@
 <%= render partial: "layouts/navbar" %>
 <div class="container">
-  <div class="delete_message">
-    <%= raw flash[:notice] %>
-  </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= raw(flash[:notice]) %>
+    </div>
+  <% end %>
   <div class="items">
     <% if @items %>
       <% @items.each do |item| %>
