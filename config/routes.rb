@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "welcome#index"
-  resources :loans, only: [:index]
+  resources :loans, only: [:index, :show]
   resources :categories, only: [:show]
   post "/cart_items", to: "cart_items#create"
   get "/cart", to: "cart_items#index"
@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/register", to: "users#new"
   post "/register", to: "users#create"
+  delete "/cart_items/:id", to: "cart_items#destroy"
 end
