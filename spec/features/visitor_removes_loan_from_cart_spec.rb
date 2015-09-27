@@ -3,9 +3,9 @@ require "rails_helper"
 feature "visitor removes loan from cart" do
   scenario "without being logged in" do
     loan = Loan.create(title: "Kitten Mittens",
-                description: "Support your kittens!",
-                price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                       description: "Support your kittens!",
+                       price: 50,
+                       avatar: File.open("bird.jpg", "rb"))
     visit "/"
     click_link("Loans")
 
@@ -28,7 +28,8 @@ feature "visitor removes loan from cart" do
     expect(page).to have_content("Total Price: 0")
 
     within(".delete_message") do
-      expect(page).to have_content("Successfully removed Kitten Mittens from your cart.")
+      result = "Successfully removed Kitten Mittens from your cart."
+      expect(page).to have_content(result)
     end
 
     click_link("Kitten Mittens")
