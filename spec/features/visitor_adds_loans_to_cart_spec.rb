@@ -52,7 +52,7 @@ feature "visitor adds loans to shopping cart" do
                        description: "Support your kittens!",
                        price: 5,
                        avatar: File.open("bird.jpg", "rb"))
-    user = User.create(username: "Chris", password: "password")
+    User.create(username: "Chris", password: "password")
     category = Category.create(name: "Crafts")
     category.loans << loan
     visit "/"
