@@ -1,3 +1,5 @@
+$grey: #333;
+
 .slide-image {
   width: 100%;
 }
@@ -25,12 +27,12 @@
 }
 
 .thumbnail {
-  padding: 0;
   overflow: scroll;
+  padding: 0;
 }
 
 .thumbnail .caption-full {
-  padding: 9px;
-  color: #333;
   overflow: scroll;
+  padding: 9px;
+  color: $grey;
 }
