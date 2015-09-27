@@ -1,0 +1,8 @@
+<%= render partial: "layouts/navbar" %>
+<ul>
+  <li><%= @loan.title %></li>
+  <li><%= @loan.description %></li>
+  <li><%= "Price: #{@loan.price}" %></li>
+  <li><%= button_to "Add to Cart", cart_items_path(loan_id: @loan.id,
+                                                   path: "loan_show") %></li>
+</ul>
