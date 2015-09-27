@@ -10,7 +10,7 @@
               <img src="<%= loan.avatar_file_name %>" alt="">
               <div class="caption">
                   <h4 class="pull-right"><%= loan.price %></h4>
-                  <h4><a href="/loans/<% loan.id %>"><%= loan.title %></a>
+                  <h4><%= link_to loan.title, loan_path(loan.id) %></a>
                   </h4>
                   <p><%= loan.description %></p>
                   <%= button_to "Add to Cart", cart_items_path(loan_id: loan.id,
