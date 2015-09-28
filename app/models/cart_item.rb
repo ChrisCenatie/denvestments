@@ -5,7 +5,7 @@ class CartItem < SimpleDelegator
     if quantity < 0
       quantity = 0
     end
-    
+
     @loan = item
     @quantity = quantity
   end
