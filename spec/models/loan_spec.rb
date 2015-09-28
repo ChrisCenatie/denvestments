@@ -23,4 +23,16 @@ RSpec.describe Loan, type: :model do
     loan.price = nil
     expect(loan).to_not be_valid
   end
+
+  it "must have a unique name" do
+    old_loan = Loan.new(title: "Test",
+                    description: "Buy local Denver honey.",
+                    price: 50)
+    old_loan.save
+    new_loan = Loan.new(title: "Test",
+                    description: "Buy local Denver honey.",
+                    price: 50)
+    expect(old_loan).to be_valid
+    expect(new_loan).to_not be_valid
+  end
 end
