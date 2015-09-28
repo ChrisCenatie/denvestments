@@ -15,7 +15,7 @@
             <li class="list-group-item quantity">
               <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
                 <%= f.label :quantity %>
-                <%= f.select :quantity, (1..10).to_a, selected: item.quantity %>
+                <%= f.text_field :quantity, placeholder: "#{item.quantity}" %>
                 <%= f.submit "Change Quantity" %>
               <% end %>
             </li>

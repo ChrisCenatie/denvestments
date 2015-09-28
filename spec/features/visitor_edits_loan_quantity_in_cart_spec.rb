@@ -22,7 +22,7 @@ feature "visitor edits loan quantity in cart" do
       # expect(page).to have_css("img")
     end
     within(".quantity") do
-      select 2, from: "Quantity"
+      fill_in "Quantity", with: 2
       click_on("Change Quantity")
     end
 
@@ -55,7 +55,7 @@ feature "visitor edits loan quantity in cart" do
       # expect(page).to have_css("img")
     end
     within(".quantity") do
-      select 1, from: "Quantity"
+      fill_in "Quantity", with: 1
       click_on("Change Quantity")
     end
 
