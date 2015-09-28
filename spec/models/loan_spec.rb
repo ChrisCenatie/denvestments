@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Loan, type: :model do
   before(:each) do
     @loan = Loan.new(title: "Urban Bees",
-                    description: "Buy local Denver honey.",
-                    price: 50)
+                     description: "Buy local Denver honey.",
+                     price: 50)
   end
 
   it "is valid" do
@@ -29,8 +29,8 @@ RSpec.describe Loan, type: :model do
   it "must have a unique name" do
     @loan.save
     new_loan = Loan.new(title: "Urban Bees",
-                    description: "Buy local Denver honey.",
-                    price: 50)
+                        description: "Buy local Denver honey.",
+                        price: 50)
     expect(new_loan).to_not be_valid
   end
 
