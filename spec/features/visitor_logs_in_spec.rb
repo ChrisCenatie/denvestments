@@ -2,7 +2,11 @@ require "rails_helper"
 
 feature "Visitor logging in" do
   scenario "works with correct login information" do
-    User.create(username: "alice", password: "secret")
+    User.create(username: "alice",
+                password: "secret",
+                full_name: "Alice Jones",
+                address: "1500 Blake St., Denver, CO 80205")
+
     visit "/"
     click_link "Log In"
     fill_in "user[username]", with: "alice"

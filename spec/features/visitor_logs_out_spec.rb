@@ -2,7 +2,10 @@ require "rails_helper"
 
 feature "Logged in user" do
   scenario "can log out" do
-    User.create(username: "alice", password: "password")
+    User.create(username: "alice",
+                password: "password",
+                full_name: "Alice Jones",
+                address: "1500 Blake St., Denver, CO 80205")
     visit "/"
     click_link "Log In"
     fill_in "user[username]", with: "alice"
