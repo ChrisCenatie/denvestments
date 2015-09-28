@@ -25,7 +25,7 @@ feature "visitor can view loans by category" do
     within(".loans") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("50")
+      expect(page).to have_content("$50.00")
       expect(page).to have_css("img")
 
       expect(page).to_not have_content("Urban Bees")
@@ -53,7 +53,7 @@ feature "visitor can view loans by category" do
     within(".loans") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("50")
+      expect(page).to have_content("$50.00")
       expect(page).to have_css("img")
 
       expect(page).to_not have_content("Urban Bees")
