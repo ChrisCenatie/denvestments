@@ -20,9 +20,9 @@ category2 = Category.create(name: "Agriculture")
 category3 = Category.create(name: "Transportation")
 
 User.create(username: "alice",
-                    password: "password",
-                    full_name: "Alice Jones",
-                    address: "1500 Blake St., Denver, CO 80205")
+            password: "password",
+            full_name: "Alice Jones",
+            address: "1500 Blake St., Denver, CO 80205")
 
 Order.create(user_id: 1, status_id: 2)
 
