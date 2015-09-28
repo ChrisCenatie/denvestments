@@ -10,6 +10,7 @@
       <% @items.each do |item| %>
         <div class="row">
           <ul class="list-group">
+            <li class="list-group-item cart-image"><img src="<%= item.loan.avatar_file_name %>" alt="">
             <li class="list-group-item">Loan: <%= item.loan.title %></li>
             <li class="list-group-item">Description: <%= item.loan.description %></li>
             <li class="list-group-item quantity">
