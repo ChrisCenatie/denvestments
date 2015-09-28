@@ -18,14 +18,14 @@ feature "visitor removes loan from cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 50")
+      expect(page).to have_content("Total Price: $50.00")
       # expect(page).to have_css("img")
     end
 
     click_button("Remove Loan")
 
     expect(current_path).to eq("/cart")
-    expect(page).to have_content("Total Price: 0")
+    expect(page).to have_content("Total Price: $0.00")
 
     within(".alert-success") do
       result = "Successfully removed Kitten Mittens from your cart."

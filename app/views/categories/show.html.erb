@@ -8,7 +8,7 @@
             <div class="thumbnail">
               <img src="<%= loan.avatar_file_name %>" alt="">
               <div class="caption">
-                  <h4 class="pull-right"><%= loan.price %></h4>
+                  <h4 class="pull-right"><%= number_to_currency(loan.price) %></h4>
                   <h4><%= link_to loan.title, loan_path(loan.id) %></a>
                   </h4>
                   <p><%= loan.description %></p>

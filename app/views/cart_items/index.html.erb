@@ -21,13 +21,13 @@
             </li>
             <li class="list-group-item"><%= button_to("Remove Loan", "/cart_items/#{item.loan.id}",
                               method: :delete) %></li>
-            <li class="list-group-item">Subtotal: <%= item.subtotal %></li>
+            <li class="list-group-item">Subtotal: <%= number_to_currency(item.subtotal) %></li>
           </ul>
         </div>
       <% end %>
     <% else %>
       <p>Cart is Empty! This ain't no free ride</p>
     <% end %>
-    <h2 class="lead">Total Price: <%= @total %></h2>
+    <h2 class="lead">Total Price: <%= number_to_currency(@total) %></h2>
   </div>
 </div>

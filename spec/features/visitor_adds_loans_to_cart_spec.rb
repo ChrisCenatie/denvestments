@@ -18,7 +18,7 @@ feature "visitor adds loans to shopping cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 100")
+      expect(page).to have_content("Total Price: $100.00")
       # expect(page).to have_css("img")
     end
   end
@@ -42,7 +42,7 @@ feature "visitor adds loans to shopping cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 5")
+      expect(page).to have_content("Total Price: $5.00")
       # expect(page).to have_css("img")
     end
   end
@@ -62,7 +62,7 @@ feature "visitor adds loans to shopping cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 5")
+      expect(page).to have_content("Total Price: $5.00")
       # expect(page).to have_css("img")
     end
   end
@@ -91,7 +91,7 @@ feature "visitor adds loans to shopping cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 5")
+      expect(page).to have_content("Total Price: $5.00")
       # expect(page).to have_css("img")
     end
   end

@@ -18,7 +18,7 @@ feature "visitor edits loan quantity in cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 50")
+      expect(page).to have_content("Total Price: $50.00")
       # expect(page).to have_css("img")
     end
     within(".quantity") do
@@ -29,7 +29,7 @@ feature "visitor edits loan quantity in cart" do
     expect(current_path).to eq("/cart")
     within(".items") do
       # expect(page).to have_select("Quantity", selected: 2)
-      expect(page).to have_content("Total Price: 100")
+      expect(page).to have_content("Total Price: $100.00")
     end
   end
 
@@ -51,7 +51,7 @@ feature "visitor edits loan quantity in cart" do
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
       expect(page).to have_content("Support your kittens!")
-      expect(page).to have_content("Total Price: 100")
+      expect(page).to have_content("Total Price: $100.00")
       # expect(page).to have_css("img")
     end
     within(".quantity") do
@@ -62,7 +62,7 @@ feature "visitor edits loan quantity in cart" do
     expect(current_path).to eq("/cart")
     within(".items") do
       # expect(page).to have_select("Quantity", selected: 2)
-      expect(page).to have_content("Total Price: 50")
+      expect(page).to have_content("Total Price: $50.00")
     end
   end
 end
