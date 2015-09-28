@@ -19,6 +19,22 @@ category2 = Category.create(name: "Agriculture")
 
 category3 = Category.create(name: "Transportation")
 
+user1 = User.create(username: "alice",
+                    password: "password",
+                    full_name: "Alice Jones",
+                    address: "1500 Blake St., Denver, CO 80205")
+
+order1 = Order.create(user_id: 1, status_id: 2)
+
+order_item1 = OrderItem.create(loan_id: 1, order_id: 1, quantity: 3)
+order_item2 = OrderItem.create(loan_id: 2, order_id: 1, quantity: 1)
+order_item3 = OrderItem.create(loan_id: 3, order_id: 1, quantity: 2)
+
+status1 = Status.create(name: "Ordered")
+status2 = Status.create(name: "Paid")
+status3 = Status.create(name: "Cancelled")
+status4 = Status.create(name: "Completed")
+
 category1.loans << loan2
 category2.loans << loan1
 category3.loans << loan3
