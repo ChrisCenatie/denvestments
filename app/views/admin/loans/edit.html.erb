@@ -1,0 +1,14 @@
+<%= flash[:notice] %>
+<%= form_for([:admin, @loan]) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.label :price %>
+<%= f.text_field :price %>
+<%= f.label :status %>
+<%= f.text_field :status %>
+<%= f.label :avatar %>
+<%= f.file_field :avatar %>
+<%= f.submit "Submit" %>
+<% end %>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post "/register", to: "users#create"
   delete "/cart_items/:id", to: "cart_items#destroy"
   namespace :admin do
-    resources :loans, only: [:index, :new, :create]
+    resources :loans, only: [:index, :new, :create, :edit, :update]
     get "/dashboard", to: "admins#show"
   end
 end
