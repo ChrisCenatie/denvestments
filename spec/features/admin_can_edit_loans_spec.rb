@@ -51,6 +51,7 @@ feature "Admin viewing loans" do
     fill_in "loan[price]", with: "-2"
     click_on("Submit")
     expect(current_path).to eq("/admin/loans/#{loan.id}/edit")
-    expect(page).to have_content("Title can't be blank, Price must be greater than 0")
+    expect(page).to have_content("Title can't be blank")
+    expect(page).to have_content("Price must be greater than 0")
   end
 end
