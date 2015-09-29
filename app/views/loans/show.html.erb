@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-12">
     <div class="show-loan">
-      <img class="img-responsive" src="<%= @loan.avatar_file_name %>" alt="">
+      <img class="img-responsive"> <%= image_tag @loan.avatar.url %></img>
       <div class="caption-full">
           <h4 class="pull-right"><%= "Price: #{number_to_currency(@loan.price)}" %></h4>
           <h4><a href="#"><%= @loan.title %></a></h4>
