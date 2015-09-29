@@ -72,7 +72,10 @@ feature "visitor adds loans to shopping cart" do
                        description: "Support your kittens!",
                        price: 5,
                        avatar: File.open("bird.jpg", "rb"))
-    User.create(username: "Chris", password: "password")
+    User.create(username: "Chris",
+                password: "password",
+                full_name: "Chris C",
+                address: "901 Sherman")
     category = Category.create(name: "Crafts")
     category.loans << loan
     visit "/"
@@ -87,6 +90,7 @@ feature "visitor adds loans to shopping cart" do
     fill_in "Username", with: "Chris"
     fill_in "Password", with: "password"
     click_button("Log In")
+    expect(current_path).to eq "/dashboard"
     page.find("#cart").click
     within(".items") do
       expect(page).to have_content("Kitten Mittens")
