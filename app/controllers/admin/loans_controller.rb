@@ -21,6 +21,10 @@ class Admin::LoansController < Admin::BaseController
   private
 
   def loan_params
-    params.require(:loan).permit(:title, :description, :price, :category_id, :avatar)
+    params.require(:loan).permit(:title,
+                                 :description,
+                                 :price,
+                                 :category_id,
+                                 :avatar)
   end
 end
