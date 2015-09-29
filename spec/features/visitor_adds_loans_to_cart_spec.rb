@@ -2,10 +2,12 @@ require "rails_helper"
 
 feature "visitor adds loans to shopping cart" do
   scenario "without being logged in from the loans index page" do
+    category = Category.create(name: "Crafts")
     Loan.create(title: "Kitten Mittens",
                 description: "Support your kittens!",
                 price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                avatar: File.open("bird.jpg", "rb"),
+                category: category)
     visit "/"
     click_link("Loans")
 
@@ -24,12 +26,12 @@ feature "visitor adds loans to shopping cart" do
   end
 
   scenario "without being logged in from the category show page" do
+    category = Category.create(name: "Crafts")
     loan = Loan.create(title: "Kitten Mittens",
                        description: "Support your kittens!",
                        price: 5,
-                       avatar: File.open("bird.jpg", "rb"))
-    category = Category.create(name: "Crafts")
-    category.loans << loan
+                       avatar: File.open("bird.jpg", "rb"),
+                       category: category)
     visit "/"
     click_on "Categories"
     click_on "Crafts"
@@ -48,10 +50,12 @@ feature "visitor adds loans to shopping cart" do
   end
 
   scenario "without being logged in from the loan show page" do
+    category = Category.create(name: "test")
     loan = Loan.create(title: "Kitten Mittens",
                        description: "Support your kittens!",
                        price: 5,
-                       avatar: File.open("bird.jpg", "rb"))
+                       avatar: File.open("bird.jpg", "rb"),
+                       category: category)
 
     visit "/loans/#{loan.id}"
     click_button("Add to Cart")
@@ -68,10 +72,12 @@ feature "visitor adds loans to shopping cart" do
   end
 
   scenario "visitor logs in" do
+    category = Category.create(name: "test")
     loan = Loan.create(title: "Kitten Mittens",
                        description: "Support your kittens!",
                        price: 5,
-                       avatar: File.open("bird.jpg", "rb"))
+                       avatar: File.open("bird.jpg", "rb"),
+                       category: category)
     User.create(username: "Chris", password: "password")
     category = Category.create(name: "Crafts")
     category.loans << loan

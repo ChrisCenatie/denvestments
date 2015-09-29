@@ -2,10 +2,12 @@ require "rails_helper"
 
 feature "visitor edits loan quantity in cart" do
   scenario "by increasing loan quantity without being logged in" do
+    category = Category.create(name: "test")
     Loan.create(title: "Kitten Mittens",
                 description: "Support your kittens!",
                 price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                avatar: File.open("bird.jpg", "rb"),
+                category: category)
     visit "/"
     click_link("Loans")
 
@@ -34,10 +36,12 @@ feature "visitor edits loan quantity in cart" do
   end
 
   scenario "by decreasing loan quantity without being logged in" do
+    category = Category.create(name: "test")
     Loan.create(title: "Kitten Mittens",
                 description: "Support your kittens!",
                 price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                avatar: File.open("bird.jpg", "rb"),
+                category: category)
     visit "/"
     click_link("Loans")
 

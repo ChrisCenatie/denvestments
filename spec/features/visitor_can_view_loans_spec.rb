@@ -2,10 +2,12 @@ require "rails_helper"
 
 feature "visitor viewing loans" do
   scenario "can view loans" do
+    category = Category.create(name: "test")
     Loan.create(title: "Kitten Mittens",
                 description: "Support your kittens!",
                 price: 50,
-                avatar: File.open("bird.jpg", "rb"))
+                avatar: File.open("bird.jpg", "rb"),
+                category: category)
     visit "/loans"
 
     within(".header") do
