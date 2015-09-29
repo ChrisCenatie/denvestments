@@ -19,7 +19,7 @@ feature "User creating loan" do
     fill_in "loan[title]", with: "Test loan"
     fill_in "loan[description]", with: "Coming to a theater near you!"
     fill_in "loan[price]", with: 50
-    select "Test Category", :from => "loan[category_id]"
+    select "Test Category", from: "loan[category_id]"
     click_button("Create Loan")
 
     expect(current_path).to eq("/admin/loans")
@@ -45,7 +45,7 @@ feature "User creating loan" do
     click_link("Create Loan")
     fill_in "loan[description]", with: "Coming to a theater near you!"
     fill_in "loan[price]", with: 50
-    select "Test Category", :from => "loan[category_id]"
+    select "Test Category", from: "loan[category_id]"
     click_button("Create Loan")
 
     expect(current_path).to eq("/admin/loans/new")
