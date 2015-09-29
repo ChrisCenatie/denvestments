@@ -2,12 +2,15 @@ require "rails_helper"
 
 feature "visitor can navigate to the loan show page" do
   scenario "without being logged in" do
+    category = Category.create(name: "test")
     @loan = Loan.create(title: "Urban Bees",
                         description: "Buy local Denver honey.",
-                        price: 50)
+                        price: 50,
+                        category: category)
     Loan.create(title: "Kitten Mittens",
                 description: "Support your local kittens.",
-                price: 50)
+                price: 50,
+                category: category)
 
     visit "/loans"
     click_on "Urban Bees"

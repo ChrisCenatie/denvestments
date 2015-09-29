@@ -1,0 +1,6 @@
+<%= link_to "Create Loan", new_admin_loan_path %>
+<% @loans.each do |loan| %>
+  <p><%= loan.title %></p>
+  <p><%= loan.description %></p>
+  <p><%= number_to_currency(loan.price) %></p>
+<% end %>
