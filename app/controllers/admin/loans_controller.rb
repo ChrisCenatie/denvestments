@@ -14,7 +14,7 @@ class Admin::LoansController < Admin::BaseController
       redirect_to admin_loans_path
     else
       flash[:notice] = loan.errors.full_messages.join(", ")
-      render :new
+      redirect_to new_admin_loan_path
     end
   end
 
