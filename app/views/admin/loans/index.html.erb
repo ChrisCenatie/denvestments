@@ -3,5 +3,5 @@
   <p><%= loan.title %></p>
   <p><%= loan.description %></p>
   <p><%= number_to_currency(loan.price) %></p>
-  <%= button_to "Edit", edit_admin_loan_path(loan_id: loan.id) %>
+  <%= link_to "Edit", edit_admin_loan_path(loan) %>
 <% end %>

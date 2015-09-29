@@ -19,6 +19,10 @@ class Admin::LoansController < Admin::BaseController
   end
 
   def edit
+    @loan = Loan.find(params[:id])
+  end
+
+  def update
   end
 
   private
