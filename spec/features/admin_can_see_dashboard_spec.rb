@@ -15,7 +15,7 @@ feature "A visitor logging in" do
     click_button "Log In"
 
     expect(current_path).to eq("/admin/dashboard")
-    expect(page).to have_content("admin")
+    expect(page).to have_content("Admin Dashboard")
   end
 
   scenario "can not see the admin dashboard if not an admin" do
