@@ -7,10 +7,11 @@ feature "Admin viewing loans" do
                 full_name: "Admin Adminerstein",
                 address: "123 Admin Blvd, Admintown, USA",
                 role: 1)
-    loan = Loan.create(title: "test",
-                       description: "test",
+    category = Category.create(name: "test category")
+    loan = Loan.create(title: "test title",
+                       description: "test description",
                        price: 50,
-                       category: Category.create(name: "test"))
+                       category: category)
     visit "/"
     click_link("Log In")
     fill_in "user[username]", with: "admin"
@@ -22,6 +23,11 @@ feature "Admin viewing loans" do
     expect(current_path).to eq("/admin/loans/#{loan.id}/edit")
     fill_in "loan[title]", with: "other test"
     fill_in "loan[description]", with: "other test description"
-    fill_in "loan[status]", with: "Out of stock"
+    fill_in "loan[price]", with: "60"
+    fill_in "loan[status]", with: "Active"
+    click_on("Submit")
+    expect(current_path).to eq(loan_path(loan))
+    expect(page).to have_content("other test")
+    expect(page).to have_content("other test description")
   end
 end
