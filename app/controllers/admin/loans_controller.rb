@@ -18,6 +18,9 @@ class Admin::LoansController < Admin::BaseController
     end
   end
 
+  def edit
+  end
+
   private
 
   def loan_params
