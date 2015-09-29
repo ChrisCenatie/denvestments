@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     Category.all
   end
 
+  def current_admin?
+    current_user && current_user.admin?
+  end
+
   private
 
   def current_user

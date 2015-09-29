@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def show
     if !current_user
       redirect_to "/"
+    elsif
+      current_admin?
+      redirect_to "/admin/dashboard"
     end
   end
 

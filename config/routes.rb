@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   delete "/cart_items/:id", to: "cart_items#destroy"
+  namespace :admin do
+    get "/dashboard", to: "admins#show"
+  end
 end

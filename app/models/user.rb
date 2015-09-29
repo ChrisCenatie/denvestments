@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   validates :full_name, presence: true
   validates :address, presence: true
   has_secure_password
+
+  enum role: %w(default admin)
 end
