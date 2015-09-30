@@ -1,23 +1,11 @@
 require "rails_helper"
 
 feature "Admin viewing loans" do
+  include_context "features"
+
   scenario "can edit loans" do
-    User.create(username: "admin",
-                password: "password",
-                full_name: "Admin Adminerstein",
-                address: "123 Admin Blvd, Admintown, USA",
-                role: 1)
-    category = Category.create(name: "test category")
     other_category = Category.create(name: "other category")
-    loan = Loan.create(title: "test title",
-                       description: "test description",
-                       price: 50,
-                       category: category)
-    visit "/"
-    click_link("Log In")
-    fill_in "user[username]", with: "admin"
-    fill_in "user[password]", with: "password"
-    click_button "Log In"
+    log_in_as("admin", "password")
     visit "/admin/loans"
     click_on("Edit")
     expect(current_path).to eq("/admin/loans/#{loan.id}/edit")
@@ -35,21 +23,7 @@ feature "Admin viewing loans" do
   end
 
   scenario "can not edit loans with invalid input" do
-    User.create(username: "admin",
-                password: "password",
-                full_name: "Admin Adminerstein",
-                address: "123 Admin Blvd, Admintown, USA",
-                role: 1)
-    category = Category.create(name: "test category")
-    loan = Loan.create(title: "test title",
-                       description: "test description",
-                       price: 50,
-                       category: category)
-    visit "/"
-    click_link("Log In")
-    fill_in "user[username]", with: "admin"
-    fill_in "user[password]", with: "password"
-    click_button "Log In"
+    log_in_as("admin", "password")
     visit "/admin/loans"
     click_on("Edit")
     fill_in "loan[title]", with: ""

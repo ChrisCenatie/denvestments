@@ -1,18 +1,10 @@
 require "rails_helper"
 
 feature "User creating loan" do
+  include_context "features"
+
   scenario "without image succeeds while logged in as admin" do
-    Category.create(name: "Test Category")
-    User.create(username: "admin",
-                password: "password",
-                full_name: "Admin Adminerstein",
-                address: "123 Admin Blvd, Admintown, USA",
-                role: 1)
-    visit "/"
-    click_link("Log In")
-    fill_in "user[username]", with: "admin"
-    fill_in "user[password]", with: "password"
-    click_button "Log In"
+    log_in_as("admin", "password")
 
     click_link("View Loans")
     click_link("Create Loan")
@@ -29,12 +21,6 @@ feature "User creating loan" do
   end
 
   scenario "fails with incorrect attributes" do
-    Category.create(name: "Test Category")
-    User.create(username: "admin",
-                password: "password",
-                full_name: "Admin Adminerstein",
-                address: "123 Admin Blvd, Admintown, USA",
-                role: 1)
     visit "/"
     click_link("Log In")
     fill_in "user[username]", with: "admin"

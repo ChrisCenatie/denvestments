@@ -4,6 +4,7 @@ if Rails.env.production?
   abort("The Rails environment is running in production mode!")
 end
 require "spec_helper"
+require "support/features"
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara/rails"
