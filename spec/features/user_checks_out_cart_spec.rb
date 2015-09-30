@@ -5,16 +5,22 @@ feature "User checks out cart" do
     User.create(username: "Chris",
                 password: "password",
                 full_name: "Chris C",
-                address: "901 Sherman")
+                address: "1510 Blake")
     category = Category.create(name: "Cat Stuff")
     Loan.create(title: "Kitten Mittens",
                 description: "Everyone needs them!",
                 price: 100.5,
                 category_id: category.id)
+    Loan.create(title: "Kitten Socks",
+                description: "For your feet!",
+                price: 50.0,
+                category_id: category.id)
     visit "/loans"
-    within(".loans") do
-      click_button("Add to Cart")
-    end
+    click_link("Kitten Mittens")
+    click_button("Add to Cart")
+    visit "/loans"
+    click_link("Kitten Socks")
+    click_button("Add to Cart")
     visit(login_path)
     fill_in "Username", with: "Chris"
     fill_in "Password", with: "password"
@@ -33,10 +39,16 @@ feature "User checks out cart" do
 
     expect(current_path).to eq order_path(Order.last.id)
     expect(page).to have_content("Loans in Cart: 0")
+    expect(page).to have_content("Chris C")
+    expect(page).to have_content("1510 Blake")
+    expect(page).to have_content(Order.last.created_at)
     expect(page).to have_content("Order successful!")
     expect(page).to have_content("Kitten Mittens")
-    expect(page).to have_content("1")
-    expect(page).to have_content("Total Paid: $100.50")
+    expect(page).to have_content("Kitten Socks")
+    expect(page).to have_content("$100.50")
+    expect(page).to have_content("$50.00")
+    expect(page).to have_content("Status: Ordered")
+    expect(page).to have_content("Total Paid: $150.50")
   end
 
   scenario "visitor must login to checkout"do

@@ -1,15 +1,20 @@
 <%= render partial: "layouts/flash" %>
-
+<h2>Name: <%= @user.full_name %></h2>
+<h2>Address: <%= @user.address %></h2>
 <table>
   <tr>
     <th>Loan Title</th>
     <th>Quantity Purchased</th>
+    <th>Subtotal</th>
   </tr>
-  <% @loan_id_quantities.each do |loan_id, quantity| %>
+  <% @loan_quantities.each do |loan, quantity| %>
   <tr>
-    <td><%= Loan.find(loan_id).title %></td>
+    <td><%= loan.title %></td>
     <td><%= quantity %></td>
+    <td><%= number_to_currency(quantity * loan.price) %></td>
   </tr>
   <% end %>
 </table>
-<h1>Total Paid: <%= number_to_currency(@total) %></h1>
+<h3>Order Date: <%= @order.created_at %></h3>
+<h3>Order Status: <%= @order.status %></h3>
+<h1>Total Paid: <%= number_to_currency(@order.total_cost) %></h1>
