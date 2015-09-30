@@ -41,14 +41,14 @@ feature "User checks out cart" do
     expect(page).to have_content("Loans in Cart: 0")
     expect(page).to have_content("Chris C")
     expect(page).to have_content("1510 Blake")
-    expect(page).to have_content(Order.last.created_at)
+    expect(page).to have_content(Order.last.date)
     expect(page).to have_content("Order successful!")
     expect(page).to have_content("Kitten Mittens")
     expect(page).to have_content("Kitten Socks")
     expect(page).to have_content("$100.50")
     expect(page).to have_content("$50.00")
-    expect(page).to have_content("Status: Ordered")
-    expect(page).to have_content("Total Paid: $150.50")
+    expect(page).to have_content("Status Ordered")
+    expect(page).to have_content("Total $150.50")
   end
 
   scenario "visitor must login to checkout"do
@@ -88,7 +88,7 @@ feature "User checks out cart" do
     expect(page).to have_content("Order successful!")
     expect(page).to have_content("Kitten Mittens")
     expect(page).to have_content("1")
-    expect(page).to have_content("Total Paid: $100.50")
+    expect(page).to have_content("Total $100.50")
   end
 
   scenario "visitor can not see other users orders" do
@@ -178,6 +178,6 @@ feature "User checks out cart" do
     expect(page).to have_content("Loans in Cart:")
     expect(page).to have_content("Kitten Mittens")
     expect(page).to have_content("1")
-    expect(page).to have_content("Total Paid: $100.50")
+    expect(page).to have_content("Total $100.50")
   end
 end
