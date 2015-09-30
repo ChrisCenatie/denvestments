@@ -33,5 +33,9 @@ group :development do
   gem "spring"
 end
 
+group :production do
+  gem "rails_12factor"
+end
+
 gem "rubocop"
 gem "bootstrap-sass"
