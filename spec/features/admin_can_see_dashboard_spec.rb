@@ -64,7 +64,7 @@ feature "A visitor logging in" do
     fill_in "user[username]", with: "admin"
     fill_in "user[password]", with: "password"
     click_button "Log In"
+    click_button "Ordered"
     expect(page).to have_content("Order ID: #{order.id}")
-    expect(page).to have_content("Status: Ordered")
   end
 end
