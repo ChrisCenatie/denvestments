@@ -15,7 +15,7 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "unicorn"
 gem "paperclip"
-gem "aws-sdk"
+gem "aws-sdk", '< 2.0'
 gem "figaro"
 
 group :development, :test do
