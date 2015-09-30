@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       loans_and_quantities = loan_id_quantities.map do |id, quantity|
         [Loan.find(id), quantity]
       end
-      @loan_quantities = loans_and_quantities.to_h
+      @loan_quantities = Hash[loans_and_quantities]
     else
       render file: "/public/404"
     end
