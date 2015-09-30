@@ -21,5 +21,9 @@ class ApplicationController < ActionController::Base
   def cart
     Cart.new(session[:cart])
   end
-  
+
+  def show_order?(order_user_id)
+    (current_user) && (current_user.id == order_user_id) || (current_admin?)
+  end
+
 end
