@@ -4,20 +4,8 @@
       <h1 class="lead header"><%= @category.name %></h1>
       <div class="row loans">
         <% @loans.each do |loan| %>
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="<%= loan.avatar_file_name %>" alt="">
-              <div class="caption">
-                  <h4 class="pull-right"><%= number_to_currency(loan.price) %></h4>
-                  <h4><%= link_to loan.title, loan_path(loan.id) %></a>
-                  </h4>
-                  <p><%= loan.description %></p>
-                  <%= button_to "Add to Cart", cart_items_path(loan_id: loan.id,
-                                              path: "category_show",
-                                              category_id: params[:id]) %>
-              </div>
-            </div>
-          </div>
+          <%= render partial: "/layouts/tiny_loan",
+                    locals: { loan: loan, mode: :add } %>
         <% end %>
       </div>
     </div>

@@ -1,13 +1,12 @@
 <div class="container">
   <div class="col-md-12">
     <div class="show-loan">
-      <img class="img-responsive"> <%= image_tag @loan.avatar.url %></img>
+      <%= image_tag @loan.avatar.url %>
       <div class="caption-full">
           <h4 class="pull-right"><%= "Price: #{number_to_currency(@loan.price)}" %></h4>
           <h4><a href="#"><%= @loan.title %></a></h4>
+          <p class="pull-right"><%= @loan.status %></p>
           <p><%= @loan.description %></p>
-          <a><%= button_to "Add to Cart", cart_items_path(loan_id: @loan.id,
-                                                           path: "loan_show") %></a>
       </div>
     </div>
   </div>
