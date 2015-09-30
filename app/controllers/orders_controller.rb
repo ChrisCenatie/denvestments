@@ -20,9 +20,14 @@ class OrdersController < ApplicationController
   def show
     order = Order.find(params[:id])
     if show_order?(order.user_id)
-      @total = order.total_cost
+      @order = order
+      @user = User.find(order.user_id)
       order_items = order.order_items
-      @loan_id_quantities = order_items.pluck(:loan_id, :quantity).to_h
+      loan_id_quantities = order_items.pluck(:loan_id, :quantity).to_h
+      loans_and_quantities = loan_id_quantities.map do |id, quantity|
+        [Loan.find(id), quantity]
+      end
+      @loan_quantities = loans_and_quantities.to_h
     else
       render file: "/public/404"
     end

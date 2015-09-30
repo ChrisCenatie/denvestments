@@ -45,8 +45,8 @@ feature "User checks out cart" do
     expect(page).to have_content("Order successful!")
     expect(page).to have_content("Kitten Mittens")
     expect(page).to have_content("Kitten Socks")
-    expect(page).to have_content("Subtotal: $100.50")
-    expect(page).to have_content("Subtotal: $50.00")
+    expect(page).to have_content("$100.50")
+    expect(page).to have_content("$50.00")
     expect(page).to have_content("Status: Ordered")
     expect(page).to have_content("Total Paid: $150.50")
   end
