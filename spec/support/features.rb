@@ -15,8 +15,11 @@ shared_context "features" do
                 role: 0)
   end
 
+  let!(:category) do
+    Category.create(name: "Test Category")
+  end
+
   let!(:loan) do
-    category = Category.create(name: "test category")
     loan = Loan.create(title: "test title",
                        description: "test description",
                        price: 50,
