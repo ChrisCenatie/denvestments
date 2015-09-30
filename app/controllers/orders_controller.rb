@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       @order = order
       @user = User.find(order.user_id)
       order_items = order.order_items
-      loan_id_quantities = order_items.pluck(:loan_id, :quantity).to_h
+      loan_id_quantities = Hash[order_items.pluck(:loan_id, :quantity)]
       loans_and_quantities = loan_id_quantities.map do |id, quantity|
         [Loan.find(id), quantity]
       end
