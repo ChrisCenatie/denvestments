@@ -1,0 +1,15 @@
+<%= render partial: "layouts/flash" %>
+
+<table>
+  <tr>
+    <th>Loan Title</th>
+    <th>Quantity Purchased</th>
+  </tr>
+  <% @loan_id_quantities.each do |loan_id, quantity| %>
+  <tr>
+    <td><%= Loan.find(loan_id).title %></td>
+    <td><%= quantity %></td>
+  </tr>
+  <% end %>
+</table>
+<h1>Total Paid: <%= number_to_currency(@total) %></h1>

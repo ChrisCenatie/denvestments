@@ -29,5 +29,6 @@
       <p>Cart is Empty! This ain't no free ride</p>
     <% end %>
     <h2 class="lead">Total Price: <%= number_to_currency(@total) %></h2>
+    <h2 class="checkout"><%= link_to "Checkout", new_order_path %></h2>
   </div>
 </div>

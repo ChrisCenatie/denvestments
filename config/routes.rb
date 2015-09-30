@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     get "/edit", to: "admins#edit"
     put "/edit", to: "admins#update"
   end
+
+  resources :orders, only: [:new, :create, :show]
 end

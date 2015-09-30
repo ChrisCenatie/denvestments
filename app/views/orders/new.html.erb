@@ -1,0 +1,9 @@
+<div id="payment">
+  <%=form_for @orders do |f| %>
+  <%= f.label :card_number %>
+  <%= f.text_field :card_number %>
+  <%= f.label :card_expiration %>
+  <%= f.text_field :card_expiration %>
+  <%= f.submit "Submit Order" %>
+  <% end %>
+</div>
