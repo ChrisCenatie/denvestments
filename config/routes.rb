@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     resources :loans, only: [:index, :new, :create]
     get "/dashboard", to: "admins#show"
   end
+
+  resources :orders, only: [:new, :create, :show]
 end
