@@ -20,6 +20,7 @@ feature "Admin editing profile" do
     fill_in "admin[password]", with: "test password"
     fill_in "admin[full_name]", with: "test full name"
     fill_in "admin[address]", with: "987 test address"
+    save_and_open_page
     click_on "Save Admin"
 
     expect(current_path).to eq("/admin/dashboard")
