@@ -25,13 +25,7 @@ class CartItemsController < ApplicationController
   private
 
   def redirect(params)
-    if params[:path] == "category_show"
-      redirect_to category_path(params[:category_id])
-    elsif params[:path] == "loan_show"
-      redirect_to loan_path(params[:loan_id])
-    else
-      redirect_to loans_path
-    end
+    redirect_to params[:path]
   end
 
   def change_quantity(params)

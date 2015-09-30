@@ -35,7 +35,7 @@
   <div class="row loans">
     <% @loans.each do |loan| %>
       <%= render partial: "/layouts/tiny_loan",
-                locals: { loan: loan, mode: :add } %>
+                locals: { loan: loan, mode: :add, path: request.path } %>
     <% end %>
   </div>
 </div>
