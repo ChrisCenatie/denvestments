@@ -23,6 +23,20 @@ shared_context "features" do
                        category: category)
   end
 
+  let!(:order) do
+    order = Order.create(user_id: user.id,
+                         card_number: "1234",
+                         card_expiration: "09/10",
+                         total_cost: 100.50,
+                         status: "Ordered")
+  end
+
+  let!(:order_item) do
+    OrderItem.create(loan_id: loan.id,
+                     quantity: 1,
+                     order_id: order.id)
+  end
+
   def log_in_as(username, password)
     visit "/"
     click_link("Log In")
