@@ -1,9 +1,13 @@
-<div id="payment">
-  <%=form_for @orders do |f| %>
-  <%= f.label :card_number %>
-  <%= f.text_field :card_number %>
-  <%= f.label :card_expiration %>
-  <%= f.text_field :card_expiration %>
-  <%= f.submit "Submit Order" %>
+<div class="container" id="payment">
+  <%= form_for @orders, html: { class: "form-horizontal center" } do |f| %>
+    <div class="form-group col-md-12">
+      <%= f.label :card_number, class: "control-label" %>
+      <%= f.text_field :card_number, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-12">
+      <%= f.label :card_expiration, class: "control-label" %>
+      <%= f.text_field :card_expiration, class: "form-control" %>
+    </div>
+    <%= f.submit "Submit Order" %>
   <% end %>
 </div>
