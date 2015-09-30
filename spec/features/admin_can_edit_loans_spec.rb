@@ -8,6 +8,7 @@ feature "Admin viewing loans" do
                 address: "123 Admin Blvd, Admintown, USA",
                 role: 1)
     category = Category.create(name: "test category")
+    other_category = Category.create(name: "other category")
     loan = Loan.create(title: "test title",
                        description: "test description",
                        price: 50,
@@ -24,11 +25,15 @@ feature "Admin viewing loans" do
     fill_in "loan[description]", with: "other test description"
     fill_in "loan[price]", with: "60"
     fill_in "loan[status]", with: "Active"
+    select "other category", from: "loan[category_id]"
     click_on("Submit")
     expect(current_path).to eq(loan_path(loan))
     expect(page).to have_content("other test")
     expect(page).to have_content("other test description")
+    visit "/categories/#{other_category.id}"
+    expect(page).to have_content("other test")
   end
+
   scenario "can not edit loans with invalid input" do
     User.create(username: "admin",
                 password: "password",
