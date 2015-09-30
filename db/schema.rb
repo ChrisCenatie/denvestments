@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150930014531) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "category_id"
+    t.string   "status"
   end
 
   add_index "loans", ["category_id"], name: "index_loans_on_category_id", using: :btree

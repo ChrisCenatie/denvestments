@@ -1,6 +1,9 @@
-<%= link_to "Create Loan", new_admin_loan_path %>
-<% @loans.each do |loan| %>
-  <p><%= loan.title %></p>
-  <p><%= loan.description %></p>
-  <p><%= number_to_currency(loan.price) %></p>
-<% end %>
+<div class="container">
+  <%= link_to "Create Loan", new_admin_loan_path %>
+  <div class="row loans">
+    <% @loans.each do |loan| %>
+      <%= render partial: "/layouts/tiny_loan",
+                locals: { loan: loan, mode: :edit, path: request.path } %>
+    <% end %>
+  </div>
+</div>

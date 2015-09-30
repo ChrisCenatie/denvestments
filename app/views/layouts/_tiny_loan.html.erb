@@ -1,0 +1,16 @@
+<div class="col-sm-4">
+  <div class="thumbnail">
+    <%= image_tag loan.avatar.url %>
+    <div class="caption">
+      <h4 class="pull-right"><%= number_to_currency(loan.price) %></h4>
+      <h4><%= link_to loan.title, loan_path(loan.id) %></h4>
+      <p><%= loan.description %></p>
+      <% if mode == :add %>
+        <%= button_to "Add to Cart", cart_items_path(loan_id: loan.id,
+                                                     path: path) %>
+      <% elsif mode == :edit %>
+        <%= link_to "Edit", edit_admin_loan_path(loan) %>
+      <% end %>
+    </div>
+  </div>
+</div>
