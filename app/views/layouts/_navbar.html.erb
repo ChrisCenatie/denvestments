@@ -17,7 +17,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <%= render partial: "layouts/login" %>
-      <a href="/cart"><li class="navbar-text">Loans in Cart: <%= session[:cart].values.sum if session[:cart] %></li></a>
+      <li><a href="/cart">Loans in Cart: <%= session[:cart].values.sum if session[:cart] %></a></li>
       <li><a id="cart" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
     </ul>
   </div>
