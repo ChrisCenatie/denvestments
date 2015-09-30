@@ -5,4 +5,8 @@ class Order < ActiveRecord::Base
             presence: true,
             inclusion: { in: %w( Ordered Paid Cancelled Completed),
                          message: "%{value} is not a valid status" }
+
+  def date
+    created_at.strftime("%b %d, %Y")
+  end
 end
