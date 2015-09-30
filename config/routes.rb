@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :loans, only: [:index, :new, :create, :edit, :update]
     get "/dashboard", to: "admins#show"
+    get "/edit", to: "admins#edit"
+    put "/edit", to: "admins#update"
   end
 end

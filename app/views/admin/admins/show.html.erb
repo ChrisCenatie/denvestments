@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Admin Dashboard</h1>
+  <%= link_to "Edit My Profile", admin_edit_path %>
   <%= link_to "View Loans", admin_loans_path %>
   <h1 class="lead">Hello, <%= User.find(session[:user_id]).username.upcase %>!</h1>
 </div>
