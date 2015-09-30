@@ -3,6 +3,6 @@ class Order < ActiveRecord::Base
   belongs_to :user
   validates :status,
             presence: true,
-            inclusion: { in: %w( Ordered Paid Cancelled Completed),
-            message: "%{value} is not a valid status"}
+            inclusion: {in: %w( Ordered Paid Cancelled Completed),
+                        message: "%{value} is not a valid status"}
 end

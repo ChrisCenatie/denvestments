@@ -2,15 +2,15 @@ require "rails_helper"
 
 feature "User checks out cart" do
   scenario "with valid inputs" do
-    user = User.create(username: "Chris",
-                       password: "password",
-                       full_name: "Chris C",
-                       address: "901 Sherman")
+    User.create(username: "Chris",
+                password: "password",
+                full_name: "Chris C",
+                address: "901 Sherman")
     category = Category.create(name: "Cat Stuff")
-    loan = Loan.create(title: "Kitten Mittens",
-                       description: "Everyone needs them!",
-                       price: 100.5,
-                       category_id: category.id)
+    Loan.create(title: "Kitten Mittens",
+                description: "Everyone needs them!",
+                price: 100.5,
+                category_id: category.id)
     visit "/loans"
     within(".loans") do
       click_button("Add to Cart")
@@ -40,15 +40,15 @@ feature "User checks out cart" do
   end
 
   scenario "visitor must login to checkout"do
-    user = User.create(username: "Chris",
-                       password: "password",
-                       full_name: "Chris C",
-                       address: "901 Sherman")
+    User.create(username: "Chris",
+                password: "password",
+                full_name: "Chris C",
+                address: "901 Sherman")
     category = Category.create(name: "Cat Stuff")
-    loan = Loan.create(title: "Kitten Mittens",
-                       description: "Everyone needs them!",
-                       price: 100.5,
-                       category_id: category.id)
+    Loan.create(title: "Kitten Mittens",
+                description: "Everyone needs them!",
+                price: 100.5,
+                category_id: category.id)
     visit "/loans"
     within(".loans") do
       click_button("Add to Cart")
@@ -94,9 +94,9 @@ feature "User checks out cart" do
                          card_expiration: "09/10",
                          total_cost: 100.50,
                          status: "Ordered")
-    order_item = OrderItem.create(loan_id: loan.id,
-                                  quantity: 1,
-                                  order_id: order.id)
+    OrderItem.create(loan_id: loan.id,
+                     quantity: 1,
+                     order_id: order.id)
     visit order_path(order.id)
 
     expect(page).to have_content("doesn't exist")
@@ -117,9 +117,9 @@ feature "User checks out cart" do
                          card_expiration: "09/10",
                          total_cost: 100.50,
                          status: "Ordered")
-    order_item = OrderItem.create(loan_id: loan.id,
-                                  quantity: 1,
-                                  order_id: order.id)
+    OrderItem.create(loan_id: loan.id,
+                     quantity: 1,
+                     order_id: order.id)
     User.create(username: "Chris",
                 password: "password",
                 full_name: "Bob C",
@@ -138,7 +138,7 @@ feature "User checks out cart" do
                        password: "password",
                        full_name: "Chris C",
                        address: "901 Sherman")
-    category = Category.create( name: "Cat Stuff")
+    category = Category.create(name: "Cat Stuff")
     loan = Loan.create(title: "Kitten Mittens",
                        description: "Everyone needs them!",
                        price: 100.5,
@@ -148,9 +148,9 @@ feature "User checks out cart" do
                          card_expiration: "09/10",
                          total_cost: 100.50,
                          status: "Ordered")
-    order_item = OrderItem.create(loan_id: loan.id,
-                                  quantity: 1,
-                                  order_id: order.id)
+    OrderItem.create(loan_id: loan.id,
+                     quantity: 1,
+                     order_id: order.id)
     User.create(username: "Chris",
                 password: "password",
                 full_name: "Bob C",

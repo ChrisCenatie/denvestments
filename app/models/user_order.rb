@@ -1,5 +1,4 @@
 class UserOrder
-
   def initialize(session, params)
     @session = session
     @params = params
@@ -7,10 +6,10 @@ class UserOrder
 
   def create_order
     @order = Order.create(user_id: @session[:user_id],
-                         card_number: @params[:order][:card_number],
-                         card_expiration: @params[:order][:card_expiration],
-                         total_cost: Cart.new(@session[:cart]).total,
-                         status: "Ordered")
+                          card_number: @params[:order][:card_number],
+                          card_expiration: @params[:order][:card_expiration],
+                          total_cost: Cart.new(@session[:cart]).total,
+                          status: "Ordered")
   end
 
   def create_order_items

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def new
     if current_user
-      @orders = Order.new()
+      @orders = Order.new
     else
       flash[:notice] = "Please Login or Create an Account to Checkout"
       redirect_to login_path
