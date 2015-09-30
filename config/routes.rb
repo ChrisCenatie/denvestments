@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete "/cart_items/:id", to: "cart_items#destroy"
   namespace :admin do
     resources :loans, only: [:index, :new, :create, :edit, :update]
+    resources :orders, only: [:update]
     get "/dashboard", to: "admins#show"
     get "/edit", to: "admins#edit"
     put "/edit", to: "admins#update"
