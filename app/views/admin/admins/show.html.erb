@@ -1,3 +1,4 @@
+<body class="full">
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
   <h1>Admin Dashboard</h1>
@@ -13,10 +14,9 @@
     <button type="button" class="btn btn-default" id="completed">Completed</button>
   </div>
 
-
   <div class="hidden orders" id="Ordered">
-    <p class="lead">Status: Ordered - <%= @ordered.size %></p>
     <ul class="list-group">
+      <li class="list-group-item lead">Status: Ordered - <%= @ordered.size %></li>
       <% @ordered.each do |order| %>
       <li class="list-group-item"><%= link_to "Order ID: #{order.id}", order_path(order) %>
          | <%= link_to "Cancel", admin_order_path(order, status: "cancelled"), method: :put %>
@@ -25,16 +25,16 @@
     </ul>
   </div>
   <div class="hidden orders" id="Cancelled">
-    <p class="lead">Status: Cancelled - <%= @cancelled.size %></p>
     <ul class="list-group">
+      <li class="list-group-item lead">Status: Cancelled - <%= @cancelled.size %></li>
       <% @cancelled.each do |order| %>
       <li class="list-group-item"><%= link_to "Order ID: #{order.id}", order_path(order) %></li>
       <% end %>
     </ul>
   </div>
   <div class="hidden orders" id="Paid">
-    <p class="lead">Status: Paid - <%= @paid.size %></p>
     <ul class="list-group">
+      <li class=" list-group-item lead">Status: Paid - <%= @paid.size %></li>
       <% @paid.each do |order| %>
       <li class="list-group-item"><%= link_to "Order ID: #{order.id}", order_path(order) %>
          | <%= link_to "Cancel", admin_order_path(order, status: "cancelled"), method: :put %>
@@ -43,8 +43,8 @@
     </ul>
   </div>
   <div class="hidden orders" id="Completed">
-    <p class="lead">Status: Completed - <%= @completed.size %></p>
     <ul class="list-group">
+      <li class=" list-group-item lead">Status: Completed - <%= @completed.size %></li>
       <% @completed.each do |order| %>
       <li class="list-group-item"<%= link_to "Order ID: #{order.id}", order_path(order) %></li>
       <% end %>
@@ -52,6 +52,7 @@
   </div>
 </div>
 </div>
+</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
