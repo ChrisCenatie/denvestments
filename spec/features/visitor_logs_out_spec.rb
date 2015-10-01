@@ -1,16 +1,9 @@
 require "rails_helper"
 
 feature "Logged in user" do
+  include_context("features")
   scenario "can log out" do
-    User.create(username: "alice",
-                password: "password",
-                full_name: "Alice Jones",
-                address: "1500 Blake St., Denver, CO 80205")
-    visit "/"
-    click_link "Log In"
-    fill_in "user[username]", with: "alice"
-    fill_in "user[password]", with: "password"
-    click_button "Log In"
+    log_in_as("alice", "password")
     click_link "Log Out"
 
     expect(current_path).to eq("/")

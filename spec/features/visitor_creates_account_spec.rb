@@ -1,6 +1,8 @@
 require "rails_helper"
 
 feature "Visitor creating account" do
+  include_context("features")
+
   scenario "works with valid information" do
     visit "/"
     click_link "Create Account"
@@ -18,10 +20,6 @@ feature "Visitor creating account" do
   end
 
   scenario "won't work with invalid information" do
-    User.create(username: "alice",
-                password: "password",
-                full_name: "Alice Jones",
-                address: "1500 Blake St., Denver, CO 80205")
     visit "/"
     click_link "Create Account"
     fill_in "user[username]", with: "alice"
