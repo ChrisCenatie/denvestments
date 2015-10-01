@@ -1,5 +1,3 @@
-require "open-uri"
-
 class Loan < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
