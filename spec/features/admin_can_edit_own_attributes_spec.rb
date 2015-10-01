@@ -28,4 +28,19 @@ feature "Admin editing profile" do
     visit "/admin/edit"
     expect(page).to have_content("The page you were looking for doesn't exist")
   end
+
+  scenario "fails with invalid attributes" do
+    log_in_as("admin", "password")
+    visit "/"
+    click_link "admin"
+    click_link "Edit My Profile"
+    fill_in "admin[username]", with: "alice"
+    fill_in "admin[password]", with: "password"
+    fill_in "admin[full_name]", with: "test full name"
+    fill_in "admin[address]", with: "987 test address"
+    click_on "Save Admin"
+
+    expect(current_path).to eq("/admin/edit")
+    expect(page).to have_content("Username has already been taken")
+  end
 end
