@@ -8,8 +8,8 @@ feature "visitor adds loans to shopping cart" do
     click_link("Loans")
 
     within(".loans") do
-      click_button("Add to Cart")
-      click_button("Add to Cart")
+      first(".caption").click_button("Add to Cart")
+      first(".caption").click_button("Add to Cart")
     end
     expect(page).to have_content("Loans in Cart: 2")
     page.find("#cart").click
@@ -25,7 +25,7 @@ feature "visitor adds loans to shopping cart" do
     click_on "Categories"
     click_on "Test Category"
     within(".loans") do
-      click_button("Add to Cart")
+      first(".caption").click_button("Add to Cart")
     end
     expect(page).to have_content("Loans in Cart: 1")
     expect(current_path).to eq "/categories/#{category.id}"

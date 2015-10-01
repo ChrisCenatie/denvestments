@@ -7,7 +7,7 @@ feature "Admin viewing loans" do
     other_category = Category.create(name: "other category")
     log_in_as("admin", "password")
     visit "/admin/loans"
-    click_on("Edit")
+    first(".caption").click_link("Edit")
     expect(current_path).to eq("/admin/loans/#{loan.id}/edit")
     fill_in "loan[title]", with: "other test"
     fill_in "loan[description]", with: "other test description"
@@ -25,7 +25,7 @@ feature "Admin viewing loans" do
   scenario "can not edit loans with invalid input" do
     log_in_as("admin", "password")
     visit "/admin/loans"
-    click_on("Edit")
+    first(".caption").click_link("Edit")
     fill_in "loan[title]", with: ""
     fill_in "loan[price]", with: "-2"
     click_on("Submit")

@@ -19,11 +19,22 @@ shared_context "features" do
     Category.create(name: "Test Category")
   end
 
+  let!(:other_category) do
+    Category.create(name: "Other Category")
+  end
+
   let!(:loan) do
     loan = Loan.create(title: "test title",
                        description: "test description",
                        price: 50,
                        category: category)
+  end
+
+  let!(:other_loan) do
+    other_loan = Loan.create(title: "other test title",
+                             description: "other test description",
+                             price: 75,
+                             category: other_category)
   end
 
   let!(:order) do
