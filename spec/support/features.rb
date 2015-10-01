@@ -24,14 +24,14 @@ shared_context "features" do
   end
 
   let!(:loan) do
-    loan = Loan.create(title: "test title",
+    Loan.create(title: "test title",
                        description: "test description",
                        price: 50,
                        category: category)
   end
 
   let!(:other_loan) do
-    other_loan = Loan.create(title: "other test title",
+    Loan.create(title: "other test title",
                              description: "other test description",
                              price: 75,
                              category: other_category)
