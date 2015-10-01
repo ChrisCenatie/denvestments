@@ -22,12 +22,8 @@ class OrdersController < ApplicationController
     if show_order?(order.user_id)
       @order = order
       @user = User.find(order.user_id)
-      order_items = order.order_items
-      loan_id_quantities = Hash[order_items.pluck(:loan_id, :quantity)]
-      loans_and_quantities = loan_id_quantities.map do |id, quantity|
-        [Loan.find(id), quantity]
-      end
-      @loan_quantities = Hash[loans_and_quantities]
+      loan_quantity = LoanQuantities.new(order)
+      @loan_quantities = loan_quantity.loan_quantities
     else
       render file: "/public/404"
     end
