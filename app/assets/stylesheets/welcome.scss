@@ -1,21 +1,27 @@
-$grey: #666666;
+$secondary: #AA5939;
+$secondary-dark: #551800;
+$tertiary: #4b2d73;
 
 .full {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/c/ce/Downtown_Denver_2.jpg") no-repeat center center fixed;
+  background: url("https://s3.amazonaws.com/turing-denvestments/assets/NiYhojI.png") no-repeat center center fixed;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
 }
 
+* {
+  color: $secondary;
+}
+
 .welcome-header {
-  color: $grey;
+  color: $secondary;
   font-family: "Tenor Sans", Helvetica, sans-serif;
   font-size: 5em;
 }
 
 .welcome-text {
-  color: $grey;
+  color: $secondary;
   font-family: "Tenor Sans", Helvetica, sans-serif;
   font-size: 2em;
 }
