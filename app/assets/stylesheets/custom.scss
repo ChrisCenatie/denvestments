@@ -3,8 +3,12 @@ $dark-grey: #333333;
 $primary: #91a437;
 $primary-light: #e8f6a4;
 $primary-dark: #445200;
-$secondary: #983351;
-$tertiary: #4b2d73;
+$secondary: #AA5939;
+$secondary-light: #FFC2AA;
+$secondary-dark: #551800;
+$tertiary: #343477;
+$tertiary-light: #8080B3;
+$tertiary-dark: #09093B;
 
 .navbar-inverse { background-color: $primary-light}
 .navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: $primary-light}
@@ -13,7 +17,7 @@ $tertiary: #4b2d73;
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: $primary}
 .navbar-inverse { background-image: none; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
-.navbar-inverse { border-color: $primary}
+.navbar-inverse { border-color: $primary-light}
 .navbar-inverse .navbar-brand { color: $primary}
 .navbar-inverse .navbar-brand:hover { color: $primary-dark}
 .navbar-inverse .navbar-nav>li>a { color: $primary}
@@ -43,6 +47,18 @@ body {
   width: 100%;
 }
 
+p, dt {
+  color: black;
+}
+
+a {
+  color: $secondary;
+}
+
+a:hover {
+  color: $secondary-light;
+}
+
 #admin-links {
   padding-bottom: 15px;
 }
@@ -53,4 +69,24 @@ body {
 
 .btn-group {
   padding-bottom: 10px;
+}
+
+.btn-warning {
+  background: $secondary;
+  border-color: $secondary-dark;
+}
+
+.btn-warning:hover {
+  background: $secondary-light;
+  border-color: $secondary;
+}
+
+.btn-primary {
+  background: $tertiary;
+  border-color: $tertiary-dark;
+}
+
+.btn-primary:hover {
+  background: $tertiary-light;
+  border-color: $tertiary;
 }
