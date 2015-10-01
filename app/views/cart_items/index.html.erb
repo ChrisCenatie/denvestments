@@ -4,31 +4,38 @@
       <%= raw(flash[:notice]) %>
     </div>
   <% end %>
+  <h1 class="lead header">Cart</h1>
   <div class="items">
     <% if @items %>
       <% @items.each do |item| %>
-        <div class="row">
-          <ul class="list-group">
-            <li class="list-group-item cart-image"><img src="<%= item.loan.avatar.url %>" alt="">
-            <li class="list-group-item">Loan: <%= item.loan.title %></li>
-            <li class="list-group-item">Description: <%= item.loan.description %></li>
-            <li class="list-group-item quantity">
-              <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
-                <%= f.label :quantity %>
-                <%= f.text_field :quantity, placeholder: "#{item.quantity}" %>
-                <%= f.submit "Change Quantity" %>
-              <% end %>
-            </li>
-            <li class="list-group-item"><%= button_to("Remove Loan", "/cart_items/#{item.loan.id}",
-                              method: :delete) %></li>
-            <li class="list-group-item">Subtotal: <%= number_to_currency(item.subtotal) %></li>
-          </ul>
+        <div class="row well well-lg">
+          <dl class="dl-horizontal">
+          <dt class="thumbnail cart-image"><img src="<%= item.loan.avatar.url %>" alt=""></dt>
+          <dd>
+            <ul class="list-group">
+              <li class="list-group-item head">Loan: <%= item.loan.title %></li>
+              <li class="list-group-item">Description: <%= item.loan.description %></li>
+              <li class="list-group-item quantity">
+                <%= form_for(:item_quantity, url: "/cart_items/#{item.loan.id}", method: :put) do |f| %>
+                  <%= f.label :quantity %>
+                  <%= f.text_field :quantity, placeholder: "#{item.quantity}" %>
+                  <%= f.submit "Change Quantity" %>
+                <% end %>
+              </li>
+              <li class="list-group-item"><%= button_to("Remove Loan", "/cart_items/#{item.loan.id}",
+                                method: :delete) %></li>
+              <li class="list-group-item">Subtotal: <%= number_to_currency(item.subtotal) %></li>
+            </ul>
+          <dd>
         </div>
       <% end %>
     <% else %>
       <p>Cart is Empty! This ain't no free ride</p>
     <% end %>
-    <h2 class="lead">Total Price: <%= number_to_currency(@total) %></h2>
-    <h2 class="checkout"><%= link_to "Checkout", new_order_path %></h2>
+    <div class="row">
+      <h2 class="col-md-6">Total Price: <%= number_to_currency(@total) %></h2>
+      <h2 id="checkout" class="btn btn-success btn-lg pull-right">
+      <%= link_to "Checkout", new_order_path %></h2>
+    </div>
   </div>
 </div>
